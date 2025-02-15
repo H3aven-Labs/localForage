@@ -11,6 +11,8 @@ improves the offline experience of your web app by using asynchronous storage
 localForage uses localStorage in browsers with no IndexedDB or
 WebSQL support. See [the wiki for detailed compatibility info][supported browsers].
 
+> 🚨‼️ **Attention: do not commit changes to .npmrc file with auth token as this is a public repository**
+
 To use localForage, just drop a single JavaScript file into your page:
 
 ```html
@@ -254,3 +256,9 @@ This program is free software; it is distributed under an
 
 Copyright (c) 2013-2016 [Mozilla](https://mozilla.org)
 ([Contributors](https://github.com/localForage/localForage/graphs/contributors)).
+
+## Publish
+
+```bash
+yarn build && npm publish
+```
