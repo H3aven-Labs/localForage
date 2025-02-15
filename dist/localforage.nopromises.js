@@ -1,6 +1,6 @@
 /*!
     localForage -- Offline Storage, Improved
-    Version 1.10.0
+    Version 1.11.1
     https://localforage.github.io/localForage
     (c) 2013-2017 Mozilla, Apache License 2.0
 */
@@ -2329,7 +2329,11 @@ var LocalForage = function () {
         return this._driver || null;
     };
 
-    LocalForage.prototype.getDriver = function getDriver(driverName, callback, errorCallback) {
+    LocalForage.prototype.getDriver = function getDriver() {
+        var driverName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'sessionStorageWrapper';
+        var callback = arguments[1];
+        var errorCallback = arguments[2];
+
         var getDriverPromise = DefinedDrivers[driverName] ? Promise$1.resolve(DefinedDrivers[driverName]) : Promise$1.reject(new Error('Driver not found.'));
 
         executeTwoCallbacks(getDriverPromise, callback, errorCallback);
