@@ -262,7 +262,7 @@ class LocalForage {
         return this._driver || null;
     }
 
-    getDriver(driverName, callback, errorCallback) {
+    getDriver(driverName = 'sessionStorageWrapper', callback, errorCallback) {
         const getDriverPromise = DefinedDrivers[driverName]
             ? Promise.resolve(DefinedDrivers[driverName])
             : Promise.reject(new Error('Driver not found.'));
